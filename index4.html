@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prashant Narwar | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #1e1e2f, #2d2d44);
+      color: #fff;
+      line-height: 1.6;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+    .dark-mode {
+      background: #0d0d0d;
+      color: #f0f0f0;
+    }
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    header {
+      background: #111;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 span {
+      display: inline-block;
+      animation: bounce 1.2s infinite alternate;
+      color: #00ffc8;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .toggle-btn {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #00ffc8;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10000;
+    }
+    .header-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .header-buttons a {
+      padding: 0.6rem 1.2rem;
+      background: #00ffc8;
+      color: #000;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .header-buttons a:hover {
+      background: #00d1a8;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      border-left: 5px solid #00ffc8;
+      padding-left: 1rem;
+    }
+    [data-aos] {
+      opacity: 0;
+      transition-property: opacity, transform;
+    }
+    .summary-boxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .summary-box {
+      background: #2f2f44;
+      padding: 1.5rem;
+      border-radius: 10px;
+      border-left: 4px solid #00ffc8;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .summary-box h3 {
+      color: #00ffc8;
+      margin-bottom: 0.5rem;
+    }
+    .summary-box p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: #2c2c3a;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: #fff;
+      border: 1px solid transparent;
+    }
+    .project-card:hover {
+      transform: translateY(-7px);
+      border: 1px solid #00ffc8;
+      background: #3b3b51;
+    }
+    .project-card h3 {
+      margin-bottom: 0.7rem;
+      color: #00ffc8;
+    }
+    .project-card p {
+      color: #ccc;
+    }
+    .more-highlights {
+      margin: 4rem 0;
+    }
+    .contact {
+      text-align: center;
+      margin-top: 4rem;
+    }
+    .contact p, .contact a {
+      margin: 0.4rem 0;
+      color: #aaa;
+      text-decoration: none;
+    }
+    .contact a:hover {
+      color: #00ffc8;
+    }
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 1.2rem;
+      margin-top: 4rem;
+      color: #666;
+    }
+    .rocket {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 2rem;
+      animation: float 3s ease-in-out infinite;
+      color: #00ffc8;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <button class="toggle-btn" onclick="document.body.classList.toggle('dark-mode')">🌓 Toggle Theme</button>
+  <div class="rocket">🚀</div>
+
+  <header data-aos="fade-down">
+    <h1><span>Hi, I’m Prashant Narwar</span></h1>
+    <p>Frontend Developer | React.js | Node.js | UI/UX Enthusiast</p>
+    <div class="header-buttons">
+      <a href="./Prashant_Narwar_Resume.pdf" download>📥 Download Resume</a>
+      <a href="https://www.hackerrank.com/certificates/iframe/757b5c1b3d87" href="https://www.hackerrank.com/certificates/iframe/4cab028fb50e" target="_blank">🏅 View Certification</a>
+    
+      <a href="mailto:prashant@example.com">📬 Hire Me</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section data-aos="fade-up">
+      <h2 class="section-title">About Me</h2>
+      <div class="summary-boxes">
+        <div class="summary-box">
+          <h3><i class="fas fa-briefcase"></i> Experience</h3>
+          <p>Built 15+ frontend projects using React, HTML, CSS, Node.js & more.</p>
+        </div>
+        <div class="summary-box">
+          <h3><i class="fas fa-chalkboard-teacher"></i> Training</h3>
+          <p>Currently enrolled in full-stack training at TRF – mastering MERN stack.</p>
+        </div>
+        <div class="summary-box">
+          <h3><i class="fas fa-certificate"></i> Certifications</h3>
+          <p>Certified in Frontend Web Development and Responsive UI Design.</p>
+        </div>
+      </div>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2 class="section-title">My Projects</h2>
+      <div class="projects">
+
+<a href="https://bus-travel-website.vercel.app/" class="project-card" target="_blank">
+          <h3>🚌 Bus Travel Website</h3>
+          <p>Modern travel site using HTML, CSS & JS. Fully responsive with booking form & layout.</p>
+        </a>
+
+        <a href="https://education-website-using-react-js-eight.vercel.app" class="project-card" target="_blank">
+          <h3>🎓 Education Website</h3>
+          <p>Built a modern Education Website using React, with responsive design and interactive features.</p>
+        </a>
+
+         
+
+        <!-- <a href="https://calculator-phi-snowy-90.vercel.app/" class="project-card" target="_blank">
+          <h3>🧮 Calculator App</h3>
+          <p>A responsive calculator built using React. Includes all basic operations and keyboard support.</p>
+        </a>
+        -->
+       
+      </div>
+    </section>
+
+    <section class="more-highlights" data-aos="fade-up">
+      <h2 class="section-title">More Highlights</h2>
+      <div class="summary-boxes">
+        <div class="summary-box">
+          <h3><i class="fas fa-bolt"></i> Strengths</h3>
+          <p>Creative thinking, problem-solving, and adaptability in real-world coding situations.</p>
+        </div>
+        <div class="summary-box">
+          <h3><i class="fas fa-language"></i> Languages</h3>
+          <p>Proficient in English & Hindi. Can collaborate with diverse development teams.</p>
+        </div>
+        <div class="summary-box">
+          <h3><i class="fas fa-bullseye"></i> Goals</h3>
+          <p>Aiming to join a fast-paced tech team as a Frontend Intern and grow into a full-stack engineer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" data-aos="fade-up">
+      <h2 class="section-title">Contact Me</h2>
+      <p>Email: <a href="prashantnarwar511@gmail.com">prashantnarawrbusiness@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/prashtt" target="_blank">github.com/prashantnarwar</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/prashant-narwar-82529636b/" target="_blank">linkedin.com/prashantnarwar</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Prashant Narwar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80 },
+        color: { value: "#00ffc8" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 120,
+          color: "#00ffc8",
+          opacity: 0.4,
+          width: 1
+        },
+        move: { enable: true, speed: 2 }
+      }
+    });
+    AOS.init({ duration: 1000 });
+  </script>
+</body>
+</html>
